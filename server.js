@@ -26,7 +26,7 @@ app.get("/api/hello", function (req, res) {
 
 // main API endpoint
 app.get("/api/whoami", function (req, res) {
-  let ipaddress = req.get("X-Forwarded-For").split(",")[0],
+  let ipaddress = req.get("X-Forwarded-For").split(",")[0].trim(),
       language =req.get("Accept-Language"),
       software = req.get("User-Agent");
   res.send({"ipaddress": ipaddress, "language": language, "software": software});
